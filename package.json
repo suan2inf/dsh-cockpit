@@ -1,6 +1,7 @@
 {
-  "name": "dsh-cockpit",
+  "name": "@suan2inf/dsh-cockpit",
   "version": "0.1.0",
+  "publishConfig": { "access": "public" },
   "description": "DSH Cockpit: health checks, one-click repairs and safe update management for DeepSeek Harness (Web GUI, run-from-source). 体检 / 修复 / 更新三合一管理中心。",
   "type": "module",
   "main": "index.js",

@@ -21,9 +21,9 @@ DSH 起不来时：命令行照样能体检、能修（核心模块零 DSH 依�
 ```json
 {
   "dependencies": {
-    "dsh-cockpit": "^0.1.0"
+    "@suan2inf/dsh-cockpit": "^0.1.0"
   },
-  "dsh": { "profile": { "bundles": ["dsh-cockpit"] } }
+  "dsh": { "profile": { "bundles": ["@suan2inf/dsh-cockpit"] } }
 }
 ```
 
