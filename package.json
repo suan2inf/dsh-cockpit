@@ -1,0 +1,69 @@
+{
+  "name": "dsh-cockpit",
+  "version": "0.1.0",
+  "description": "DSH Cockpit: health checks, one-click repairs and safe update management for DeepSeek Harness (Web GUI, run-from-source). 体检 / 修复 / 更新三合一管理中心。",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "dsh-cockpit": "./cli.mjs"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "page.html",
+    "cli.mjs",
+    "cordis.patch.yml",
+    "core/",
+    "scripts/"
+  ],
+  "scripts": {
+    "check": "node --check index.js && node --check client.js && node --check cli.mjs && node --check core/cockpit-core.mjs && node --check core/cockpit-fixes.mjs",
+    "doctor": "node cli.mjs"
+  },
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "health",
+    "update",
+    "repair",
+    "doctor"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.19"
+  },
+  "os": [
+    "win32"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/dsh-host-webserver": "^0.1.5-rc.1 || ^0.1.6-0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-host-webserver": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ],
+      "platform": "web"
+    },
+    "compatibility": {
+      "dshReleases": {
+        "0.1.6-alpha.2": "compatible"
+      }
+    }
+  }
+}
