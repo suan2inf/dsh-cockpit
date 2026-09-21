@@ -2,7 +2,7 @@
  * dsh-cockpit 核心检查模块（零依赖纯 Node ESM）。
  *
  * 同时被三个入口复用：
- *   - cli.mjs（独立命令行，DSH 挂了也能跑）
+ *   - cli.js（独立命令行，DSH 挂了也能跑）
  *   - index.js（DSH host 插件，HTTP API）
  *   - update-dsh.ps1（更新前门禁 + 更新后验证）
  *

@@ -6,7 +6,7 @@
   "type": "module",
   "main": "index.js",
   "bin": {
-    "dsh-cockpit": "./cli.mjs"
+    "dsh-cockpit": "cli.js"
   },
   "exports": {
     ".": "./index.js",
@@ -18,14 +18,14 @@
     "index.js",
     "client.js",
     "page.html",
-    "cli.mjs",
+    "cli.js",
     "cordis.patch.yml",
     "core/",
     "scripts/"
   ],
   "scripts": {
-    "check": "node --check index.js && node --check client.js && node --check cli.mjs && node --check core/cockpit-core.mjs && node --check core/cockpit-fixes.mjs",
-    "doctor": "node cli.mjs"
+    "check": "node --check index.js && node --check client.js && node --check cli.js && node --check core/cockpit-core.mjs && node --check core/cockpit-fixes.mjs",
+    "doctor": "node cli.js"
   },
   "keywords": [
     "deepseek",

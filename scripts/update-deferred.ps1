@@ -99,7 +99,7 @@ if ($code -eq 0) {
     }
 } else {
     Write-Host "更新失败（exit $code）。" -ForegroundColor Red
-    Write-Host '往上翻有具体原因；也可以运行 node cli.mjs（在 dsh-cockpit 目录）跑完整体检。' -ForegroundColor Yellow
+    Write-Host '往上翻有具体原因；也可以运行 node cli.js（在 dsh-cockpit 目录）跑完整体检。' -ForegroundColor Yellow
 }
 Read-Host '按回车关闭本窗口'
 exit $code

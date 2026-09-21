@@ -1,5 +1,6 @@
+#!/usr/bin/env node
 /**
- * dsh-cockpit 命令行入口：node cli.mjs（或 npx dsh-cockpit） [选项]
+ * dsh-cockpit 命令行入口：node cli.js（或 npx dsh-cockpit） [选项]
  *
  *   --online            额外做 git fetch 和 GitHub release 查询
  *   --json              输出结构化 JSON（供 agent / 脚本消费）

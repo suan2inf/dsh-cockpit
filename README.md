@@ -34,11 +34,11 @@ DSH 起不来时：命令行照样能体检、能修（核心模块零 DSH 依�
 ## 命令行
 
 ```sh
-node cli.mjs              # 离线体检
-node cli.mjs --online     # + git fetch + 最新发布 tag
-node cli.mjs --gate       # 只输出更新门禁；退出码 0 = 安全
-node cli.mjs --fixes      # 列出修复项及是否需要修
-node cli.mjs --fix <id>   # 执行修复（幂等）；中风险加 --yes
+node cli.js               # 离线体检
+node cli.js --online      # + git fetch + 最新发布 tag
+node cli.js --gate        # 只输出更新门禁；退出码 0 = 安全
+node cli.js --fixes       # 列出修复项及是否需要修
+node cli.js --fix <id>    # 执行修复（幂等）；中风险加 --yes
 ```
 
 如果仓库不在默认位置，用环境变量指定：`set DSH_REPO=C:\path\to\deepseek-harness`。
