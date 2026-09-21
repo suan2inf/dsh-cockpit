@@ -4,8 +4,12 @@
  * 手写 __ModuleLoader__ 工厂格式（与宿主打包器产物同构），无构建步骤；
  * 唯一外部依赖是加载器模块表里的 react。任何一步注册失败都只 warn，
  * 绝不拖垮设置页 —— 全部功能同时也可从独立仪表盘 /dsh-cockpit 使用。
+ *
+ * 注意：load() 的 id 必须是 npm 包名（含 scope）——client-modules 加载器
+ * 在 bundle 执行后按包名查注册（system.ts: "loaded without registering"），
+ * 对不上直接抛错、整个 Web 客户端白屏。改名包时这里必须同步。
  */
-window.__ModuleLoader__.load({ id: "dsh-cockpit", factory: (require) => {
+window.__ModuleLoader__.load({ id: "@suan2inf/dsh-cockpit", factory: (require) => {
 	var module = { exports: {} };
 	var exports = module.exports;
 	var React = require("react");

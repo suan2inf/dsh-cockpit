@@ -24,7 +24,7 @@
     "scripts/"
   ],
   "scripts": {
-    "check": "node --check index.js && node --check client.js && node --check cli.js && node --check core/cockpit-core.mjs && node --check core/cockpit-fixes.mjs",
+    "check": "node --check index.js && node --check client.js && node --check cli.js && node --check core/cockpit-core.mjs && node --check core/cockpit-fixes.mjs && node scripts/self-check.mjs",
     "doctor": "node cli.js"
   },
   "keywords": [
