@@ -374,6 +374,18 @@ async function checkPatch() {
     ? ok('plugins.patch', `patch 条目无重复（共 ${entries.length} 条）`)
     : warn('plugins.patch', `patch 里 ${conflicts.length} 个插件有重复条目`, conflicts.join('\n'),
       '插件管理器开关时会追加而非覆盖。手动编辑 cordis.patch.yml，每个 id 只保留一条。'))
+
+  // 自我指认检查：cockpit 自己被 patch 禁用时，面板和 API 都不会存在——
+  // 那时唯一能找到这句话的地方就是 CLI（DSH 外的诊断正是 CLI 存在的意义）。
+  const selfRows = byId.get('dsh-cockpit') ?? []
+  const selfDisabled = selfRows.length > 0 && selfRows[selfRows.length - 1].disabled
+  out.push(selfRows.length === 0
+    ? ok('plugins.self', 'dsh-cockpit 在 patch 中未被禁用')
+    : selfDisabled
+      ? warn('plugins.self', 'dsh-cockpit 自己被 cordis.patch.yml 禁用了',
+        'panel 和 /dsh-cockpit 都不会出现——这就是"插件完全不起作用"的最常见原因。',
+        '删掉 patch 里 id: dsh-cockpit 的条目，重启 DSH。')
+      : ok('plugins.self', 'dsh-cockpit 在 patch 中未被禁用'))
   return { out, entries }
 }
 
